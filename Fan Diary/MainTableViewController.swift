@@ -9,7 +9,9 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
 
-    let clubs = ["ЦСКА", "Спартак", "Арсенал", "Локомотив", "Динамо", "Рубин"]
+
+    
+    let clubNames = Club.getClubs()
     
     
     override func viewDidLoad() {
@@ -21,7 +23,7 @@ class MainTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return clubs.count
+        return clubNames.count
     }
 
     
@@ -35,17 +37,16 @@ class MainTableViewController: UITableViewController {
 //
 //        cell.contentConfiguration = content
         
-        cell.clubNameLabel.text = clubs[indexPath.row]
-        cell.stadiumImage.image = UIImage(named: clubs[indexPath.row])
+        cell.clubNameLabel.text = clubNames[indexPath.row].clubName
+        cell.stadiumImage.image = UIImage(named: clubNames[indexPath.row].image)
+        cell.stadiumLocationLabel.text = clubNames[indexPath.row].location
+        cell.stadiumNameLabel.text = clubNames[indexPath.row].stadium
         
         return cell
     }
     
     
-    // MARK: - Table view delegate
+    @IBAction func cancelAction(_ segue: UIStoryboardSegue) {}
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-
+    
 }
