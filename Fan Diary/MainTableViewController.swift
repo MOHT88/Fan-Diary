@@ -9,7 +9,7 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
 
-    let stadiums = ["ЦСКА", "Спартак", "Арсенал", "Локомотив", "Динамо", "Рубин"]
+    let clubs = ["ЦСКА", "Спартак", "Арсенал", "Локомотив", "Динамо", "Рубин"]
     
     
     override func viewDidLoad() {
@@ -21,21 +21,22 @@ class MainTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stadiums.count
+        return clubs.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
-        var content = cell.defaultContentConfiguration()
-        content.text = stadiums[indexPath.row]
-        content.image = UIImage(named: stadiums[indexPath.row])
-        content.imageProperties.maximumSize.width = 40
+//        var content = cell.defaultContentConfiguration()
+//        content.text = clubs[indexPath.row]
+//        content.image = UIImage(named: clubs[indexPath.row])
+//        content.imageProperties.maximumSize.width = 40
+//
+//        cell.contentConfiguration = content
         
-        cell.contentConfiguration = content
-        
-        
+        cell.clubNameLabel.text = clubs[indexPath.row]
+        cell.stadiumImage.image = UIImage(named: clubs[indexPath.row])
         
         return cell
     }
