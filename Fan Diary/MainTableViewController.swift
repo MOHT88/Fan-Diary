@@ -31,7 +31,7 @@ class MainTableViewController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         content.text = stadiums[indexPath.row]
         content.image = UIImage(named: stadiums[indexPath.row])
-        
+        content.imageProperties.maximumSize.width = 40
         
         cell.contentConfiguration = content
         
@@ -40,5 +40,11 @@ class MainTableViewController: UITableViewController {
         return cell
     }
     
+    
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 
 }

@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Fan Diary-->
         <scene sceneID="FTq-k3-qLo">
             <objects>
                 <tableViewController id="gRG-Y5-Bop" customClass="MainTableViewController" customModule="Fan_Diary" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="gRG-Y5-Bop" id="TXP-sz-PcL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="xOv-Ap-bC0"/>
+                    <navigationItem key="navigationItem" title="Fan Diary" id="xOv-Ap-bC0"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6Y-w5-KEn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,6 +43,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EBp-GY-UiB">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="gRG-Y5-Bop" kind="relationship" relationship="rootViewController" id="Gyg-yN-YkZ"/>
