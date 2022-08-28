@@ -6,25 +6,21 @@
 //
 
 import Foundation
+import RealmSwift
+import SwiftUI
 
-struct Club {
+class Club: Object {
     
-    var clubName: String
-    var stadium: String
-    var location: String
-    var image: String
+    @objc dynamic var clubName = ""
+    @objc dynamic var stadium: String?
+    @objc dynamic var location: String?
+    @objc dynamic var imageData: Data?
     
-    
-    static let clubs = ["ЦСКА", "Спартак", "Арсенал", "Локомотив", "Динамо", "Рубин"]
-    
-   static func getClubs() -> [Club] {
-        var clubs = [Club]()
-        
-        for club in self.clubs {
-            clubs.append(Club(clubName: club, stadium: "VEB Arena", location: "Moscow", image: club))
-        }
-        
-        
-        return clubs
+    convenience init(clubName: String, stadium: String?, location: String?, imageData: Data?) {
+        self.init()
+        self.clubName = clubName
+        self.stadium = stadium
+        self.location = location
+        self.imageData = imageData
     }
 }

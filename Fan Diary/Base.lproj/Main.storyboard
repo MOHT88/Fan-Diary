@@ -91,11 +91,12 @@
         <!--New Club-->
         <scene sceneID="Acw-W5-zcX">
             <objects>
-                <tableViewController id="bDX-Wf-X8K" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="qyX-fC-M2L">
+                <tableViewController id="bDX-Wf-X8K" customClass="NewClubTableViewController" customModule="Fan_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="qyX-fC-M2L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                         <sections>
                             <tableViewSection id="KNs-IQ-pxF">
                                 <cells>
@@ -119,58 +120,64 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="hxu-Mf-e6g">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="80" id="hxu-Mf-e6g">
                                         <rect key="frame" x="0.0" y="294.5" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hxu-Mf-e6g" id="Fso-Y3-A6x">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ovp-Wb-mhE">
-                                                    <rect key="frame" x="20" y="8" width="374" height="64"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ovp-Wb-mhE">
+                                                    <rect key="frame" x="20" y="8" width="374" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lce-rl-5xq">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="28.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Club Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XDc-Ej-iSl">
-                                                            <rect key="frame" x="0.0" y="28.5" width="374" height="35.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Enter Club Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XDc-Ej-iSl">
+                                                            <rect key="frame" x="0.0" y="36.5" width="374" height="31.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="bDX-Wf-X8K" id="cIe-AG-p6I"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Ovp-Wb-mhE" firstAttribute="leading" secondItem="Fso-Y3-A6x" secondAttribute="leading" constant="20" symbolic="YES" id="6TW-tV-WFS"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ovp-Wb-mhE" secondAttribute="bottom" constant="8" id="9d3-Zs-foE"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ovp-Wb-mhE" secondAttribute="bottom" constant="4" id="9d3-Zs-foE"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ovp-Wb-mhE" secondAttribute="trailing" constant="20" id="hqg-xL-0RC"/>
                                                 <constraint firstItem="Ovp-Wb-mhE" firstAttribute="top" secondItem="Fso-Y3-A6x" secondAttribute="top" constant="8" id="uWM-HG-9aS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="0rK-hD-W1f">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="80" id="0rK-hD-W1f">
                                         <rect key="frame" x="0.0" y="374.5" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0rK-hD-W1f" id="jOW-Dc-GcU">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Cj-3H-4Jt">
-                                                    <rect key="frame" x="20" y="8" width="374" height="64"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Cj-3H-4Jt">
+                                                    <rect key="frame" x="20" y="8" width="374" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stadium Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdC-9A-dEm">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="28.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Stadium Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cPe-2d-upv">
-                                                            <rect key="frame" x="0.0" y="28.5" width="374" height="35.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Enter Stadium Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cPe-2d-upv">
+                                                            <rect key="frame" x="0.0" y="36.5" width="374" height="31.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="bDX-Wf-X8K" id="Oa1-wC-P2I"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
@@ -178,37 +185,40 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="4Cj-3H-4Jt" secondAttribute="trailing" constant="20" id="J1H-eU-8q3"/>
                                                 <constraint firstItem="4Cj-3H-4Jt" firstAttribute="leading" secondItem="jOW-Dc-GcU" secondAttribute="leading" constant="20" id="OXB-g7-H2h"/>
-                                                <constraint firstAttribute="bottom" secondItem="4Cj-3H-4Jt" secondAttribute="bottom" constant="8" id="QpP-b4-5VK"/>
+                                                <constraint firstAttribute="bottom" secondItem="4Cj-3H-4Jt" secondAttribute="bottom" constant="4" id="QpP-b4-5VK"/>
                                                 <constraint firstItem="4Cj-3H-4Jt" firstAttribute="top" secondItem="jOW-Dc-GcU" secondAttribute="top" constant="8" id="SBQ-MW-PHx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="vVu-5t-DG8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="80" id="vVu-5t-DG8">
                                         <rect key="frame" x="0.0" y="454.5" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vVu-5t-DG8" id="cVe-R1-jx9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oGd-mm-Ymr">
-                                                    <rect key="frame" x="20" y="8" width="374" height="64"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oGd-mm-Ymr">
+                                                    <rect key="frame" x="20" y="8" width="374" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0u-rH-fgw">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="28.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPN-GC-DkL">
-                                                            <rect key="frame" x="0.0" y="28.5" width="374" height="35.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Enter Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPN-GC-DkL">
+                                                            <rect key="frame" x="0.0" y="36.5" width="374" height="31.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="bDX-Wf-X8K" id="ku6-XH-q1N"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="oGd-mm-Ymr" secondAttribute="bottom" constant="8" id="CoW-FY-B89"/>
+                                                <constraint firstAttribute="bottom" secondItem="oGd-mm-Ymr" secondAttribute="bottom" constant="4" id="CoW-FY-B89"/>
                                                 <constraint firstAttribute="trailing" secondItem="oGd-mm-Ymr" secondAttribute="trailing" constant="20" id="Igp-1H-TT9"/>
                                                 <constraint firstItem="oGd-mm-Ymr" firstAttribute="leading" secondItem="cVe-R1-jx9" secondAttribute="leading" constant="20" symbolic="YES" id="v99-WE-XZ1"/>
                                                 <constraint firstItem="oGd-mm-Ymr" firstAttribute="top" secondItem="cVe-R1-jx9" secondAttribute="top" constant="8" id="vn8-Bb-fky"/>
@@ -226,11 +236,22 @@
                     <navigationItem key="navigationItem" title="New Club" id="qte-bq-4Oq">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="D44-9U-0Wl">
                             <connections>
-                                <segue destination="3yI-OQ-04w" kind="unwind" unwindAction="cancelAction:" id="SdL-zJ-0AM"/>
+                                <action selector="cancelAction:" destination="bDX-Wf-X8K" id="2SH-3c-XGt"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mJY-Sc-3f7"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="mJY-Sc-3f7">
+                            <connections>
+                                <segue destination="3yI-OQ-04w" kind="unwind" unwindAction="unwindSegue:" id="4sF-Sm-qxc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="clubImage" destination="qgF-gk-P5j" id="xSf-7h-vuZ"/>
+                        <outlet property="clubNameTF" destination="XDc-Ej-iSl" id="hvd-E3-pOY"/>
+                        <outlet property="locationTF" destination="bPN-GC-DkL" id="N8y-Vg-xdo"/>
+                        <outlet property="saveButton" destination="mJY-Sc-3f7" id="3n9-d2-aqW"/>
+                        <outlet property="stadiumNameTF" destination="cPe-2d-upv" id="eY8-lS-dMh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXF-Pi-3cd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="3yI-OQ-04w" userLabel="Exit" sceneMemberID="exit"/>
