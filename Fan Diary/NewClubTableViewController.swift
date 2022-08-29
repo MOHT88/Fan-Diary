@@ -9,6 +9,7 @@ import UIKit
 
 class NewClubTableViewController: UITableViewController {
     
+    var currentClub: Club?
    
     
     @IBOutlet weak var clubImage: UIImageView!
@@ -25,7 +26,7 @@ class NewClubTableViewController: UITableViewController {
         saveButton.isEnabled = false
         
         clubNameTF.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-       
+       setupEditScreen()
     }
 // MARK: Table View Delegate
     
@@ -63,7 +64,7 @@ class NewClubTableViewController: UITableViewController {
         }
     }
     
-    func saveNewClub() {
+    func saveClub() {
         
         
         let imageData = clubImage.image?.pngData()
@@ -71,7 +72,18 @@ class NewClubTableViewController: UITableViewController {
         
         let newClub = Club(clubName: clubNameTF.text!, stadium: stadiumNameTF.text, location: locationTF.text, imageData: imageData)
 
-        StorageManager.saveObject(newClub)
+        if currentClub != nil {
+            try! realm.write {
+                currentClub?.clubName = newClub.clubName
+                currentClub?.location = newClub.location
+                currentClub?.stadium = newClub.stadium
+                currentClub?.imageData = newClub.imageData
+            }
+        } else {
+            StorageManager.saveObject(newClub)
+        }
+        
+        
         
 //        newClub.clubName = clubNameTF.text!
 //        newClub.location = locationTF.text
@@ -82,6 +94,30 @@ class NewClubTableViewController: UITableViewController {
 //                       location: locationTF.text,
 //                       image: clubImage.image,
 //                       clubImage: nil)
+    }
+    
+    private func setupEditScreen() {
+        if currentClub != nil {
+            setupNavigationBar()
+            
+            guard let data = currentClub?.imageData, let image = UIImage(data: data) else { return }
+            
+            clubImage.image = image
+            clubImage.contentMode = .scaleAspectFill
+            clubNameTF.text = currentClub?.clubName
+            locationTF.text = currentClub?.location
+            stadiumNameTF.text = currentClub?.stadium
+        }
+    }
+    
+    
+    private func setupNavigationBar() {
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        navigationItem.leftBarButtonItem = nil
+        title = currentClub?.clubName
+        saveButton.isEnabled = true
     }
     
     
@@ -131,7 +167,7 @@ extension NewClubTableViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         clubImage.image = info[.editedImage] as? UIImage
-        clubImage.contentMode = .scaleAspectFill
+//        clubImage.contentMode = .scaleAspectFill
         clubImage.clipsToBounds = true
         dismiss(animated: true)
         

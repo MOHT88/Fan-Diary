@@ -16,4 +16,11 @@ class StorageManager {
             realm.add(club)
         }
     }
+    
+    
+    static func deleteObject(_ club: Club) {
+        try! realm.write {
+            realm.delete(club)
+        }
+    }
 }

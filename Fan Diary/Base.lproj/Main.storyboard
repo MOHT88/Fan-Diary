@@ -3,91 +3,11 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Fan Diary-->
-        <scene sceneID="FTq-k3-qLo">
-            <objects>
-                <tableViewController id="gRG-Y5-Bop" customClass="MainTableViewController" customModule="Fan_Diary" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ej0-ta-wKC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="dao-o6-dLS" customClass="CustomTableViewCell" customModule="Fan_Diary" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="85"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dao-o6-dLS" id="Dsf-jQ-pWy">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nbe-HF-l4j">
-                                            <rect key="frame" x="15" y="10" width="65" height="65"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="65" id="N33-ww-bYr"/>
-                                                <constraint firstAttribute="height" constant="65" id="k7s-fz-rpP"/>
-                                            </constraints>
-                                        </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="FKU-bo-2Sn">
-                                            <rect key="frame" x="100" y="8" width="294" height="69"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdb-B4-PP0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="27"/>
-                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stadium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPs-IB-4KL">
-                                                    <rect key="frame" x="0.0" y="27" width="294" height="22.5"/>
-                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAF-ip-wL2">
-                                                    <rect key="frame" x="0.0" y="49.5" width="294" height="19.5"/>
-                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="13"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Nbe-HF-l4j" firstAttribute="centerY" secondItem="Dsf-jQ-pWy" secondAttribute="centerY" id="Ua2-YQ-BZ7"/>
-                                        <constraint firstAttribute="trailing" secondItem="FKU-bo-2Sn" secondAttribute="trailing" constant="20" id="Xd5-1J-Cp0"/>
-                                        <constraint firstItem="FKU-bo-2Sn" firstAttribute="top" secondItem="Dsf-jQ-pWy" secondAttribute="top" constant="8" id="cEJ-f8-0gb"/>
-                                        <constraint firstAttribute="bottom" secondItem="FKU-bo-2Sn" secondAttribute="bottom" constant="8" id="ieD-GM-snO"/>
-                                        <constraint firstItem="FKU-bo-2Sn" firstAttribute="leading" secondItem="Nbe-HF-l4j" secondAttribute="trailing" constant="20" id="pYx-0R-hf6"/>
-                                        <constraint firstItem="Nbe-HF-l4j" firstAttribute="leading" secondItem="Dsf-jQ-pWy" secondAttribute="leading" constant="15" id="tKK-Q5-v7e"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="clubNameLabel" destination="pdb-B4-PP0" id="ZBR-gO-Cz8"/>
-                                    <outlet property="stadiumImage" destination="Nbe-HF-l4j" id="sMV-SF-Nw5"/>
-                                    <outlet property="stadiumLocationLabel" destination="cAF-ip-wL2" id="er9-rB-VlG"/>
-                                    <outlet property="stadiumNameLabel" destination="oPs-IB-4KL" id="JEY-cg-9Rh"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="gRG-Y5-Bop" id="orI-WE-nRy"/>
-                            <outlet property="delegate" destination="gRG-Y5-Bop" id="TXP-sz-PcL"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Fan Diary" id="xOv-Ap-bC0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jCD-CD-LZE">
-                            <connections>
-                                <segue destination="7El-qH-j5B" kind="presentation" modalTransitionStyle="crossDissolve" id="t0o-4z-bYs"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d6Y-w5-KEn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="479.71014492753625" y="79.6875"/>
-        </scene>
         <!--New Club-->
         <scene sceneID="Acw-W5-zcX">
             <objects>
@@ -256,7 +176,118 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXF-Pi-3cd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="3yI-OQ-04w" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2350.7246376811595" y="79.6875"/>
+            <point key="canvasLocation" x="1428" y="80"/>
+        </scene>
+        <!--Fan Diary-->
+        <scene sceneID="sUv-UY-egh">
+            <objects>
+                <viewController id="nw5-Kl-7JA" customClass="MainTableViewController" customModule="Fan_Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="adF-NL-g5f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="YsR-Dj-0WE">
+                                <rect key="frame" x="0.0" y="117" width="414" height="779"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ghY-N4-c8q" customClass="CustomTableViewCell" customModule="Fan_Diary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ghY-N4-c8q" id="1FV-05-fNP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F4E-Sk-hlY">
+                                                    <rect key="frame" x="15" y="10" width="65" height="65"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="65" id="4XR-sO-UNs"/>
+                                                        <constraint firstAttribute="width" constant="65" id="URL-Z1-RK7"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="iwN-20-ENM">
+                                                    <rect key="frame" x="100" y="8" width="294" height="69"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLh-D7-Ifq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="294" height="27"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stadium" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVD-Hs-q5L">
+                                                            <rect key="frame" x="0.0" y="27" width="294" height="22.5"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bb-CH-h2Q">
+                                                            <rect key="frame" x="0.0" y="49.5" width="294" height="19.5"/>
+                                                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="F4E-Sk-hlY" firstAttribute="centerY" secondItem="1FV-05-fNP" secondAttribute="centerY" id="GPd-cT-pR8"/>
+                                                <constraint firstItem="F4E-Sk-hlY" firstAttribute="leading" secondItem="1FV-05-fNP" secondAttribute="leading" constant="15" id="PM3-4S-Gum"/>
+                                                <constraint firstAttribute="bottom" secondItem="iwN-20-ENM" secondAttribute="bottom" constant="8" id="SeJ-Fa-CTr"/>
+                                                <constraint firstItem="iwN-20-ENM" firstAttribute="top" secondItem="1FV-05-fNP" secondAttribute="top" constant="8" id="U4C-Dl-ZmQ"/>
+                                                <constraint firstItem="iwN-20-ENM" firstAttribute="leading" secondItem="F4E-Sk-hlY" secondAttribute="trailing" constant="20" id="WPc-c7-XiN"/>
+                                                <constraint firstAttribute="trailing" secondItem="iwN-20-ENM" secondAttribute="trailing" constant="20" id="eVw-9N-Vr1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="clubNameLabel" destination="SLh-D7-Ifq" id="bqJ-WL-sNc"/>
+                                            <outlet property="stadiumImage" destination="F4E-Sk-hlY" id="ExO-mK-3m6"/>
+                                            <outlet property="stadiumLocationLabel" destination="2bb-CH-h2Q" id="BI6-do-gav"/>
+                                            <outlet property="stadiumNameLabel" destination="OVD-Hs-q5L" id="Es7-l1-pXj"/>
+                                            <segue destination="bDX-Wf-X8K" kind="show" identifier="showDetail" id="qqo-3M-Gqj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nw5-Kl-7JA" id="vhE-MM-iIp"/>
+                                    <outlet property="delegate" destination="nw5-Kl-7JA" id="lQM-bc-tdf"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="9zM-Lg-gd8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Date"/>
+                                    <segment title="Club Name"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sortSelection:" destination="nw5-Kl-7JA" eventType="valueChanged" id="RgF-mJ-n9M"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="L3O-Cs-oj8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Fan Diary" id="bZa-tF-mNB">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="AZ" id="jMv-90-jcQ">
+                            <connections>
+                                <action selector="reversedSorting:" destination="nw5-Kl-7JA" id="0nY-hA-t9R"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Y5I-lP-XYP">
+                            <connections>
+                                <segue destination="7El-qH-j5B" kind="presentation" id="2Bf-HF-X99"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="reversedSortingButton" destination="jMv-90-jcQ" id="6v7-tr-kb6"/>
+                        <outlet property="segmentedControl" destination="9zM-Lg-gd8" id="Ijc-8b-FnC"/>
+                        <outlet property="tableView" destination="YsR-Dj-0WE" id="dh9-1Z-DXU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s3P-Om-Bve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="547.82608695652175" y="79.6875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lxf-8G-5iZ">
@@ -270,7 +301,7 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="gRG-Y5-Bop" kind="relationship" relationship="rootViewController" id="Gyg-yN-YkZ"/>
+                        <segue destination="nw5-Kl-7JA" kind="relationship" relationship="rootViewController" id="0vF-5x-XWy"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EeD-zA-tGP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -293,10 +324,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GBR-33-c0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1440.5797101449277" y="79.6875"/>
+            <point key="canvasLocation" x="1428" y="-585"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qqo-3M-Gqj"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="195" height="196"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

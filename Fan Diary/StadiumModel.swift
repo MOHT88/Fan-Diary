@@ -15,6 +15,7 @@ class Club: Object {
     @objc dynamic var stadium: String?
     @objc dynamic var location: String?
     @objc dynamic var imageData: Data?
+    @objc dynamic var date = Date()
     
     convenience init(clubName: String, stadium: String?, location: String?, imageData: Data?) {
         self.init()
