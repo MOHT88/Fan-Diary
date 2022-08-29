@@ -10,6 +10,18 @@ import RealmSwift
 
 class MainTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var clubNames: Results<Club>!
+    private var filteredClubNames: Results<Club>!
+    private var ascendingSorting = true
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -17,18 +29,28 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     
-    var clubNames: Results<Club>!
-    var ascendingSorting = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        clubNames = realm.objects(Club.self)
         
+        clubNames = realm.objects(Club.self)
+       
+        // Setup search controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+
     }
 
     // MARK: - Table view data source
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredClubNames.count
+        }
         return clubNames.isEmpty ? 0 : clubNames.count
     }
 
@@ -36,7 +58,13 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
-        let club = clubNames[indexPath.row]
+        var club = Club()
+        
+        if isFiltering {
+            club = filteredClubNames[indexPath.row]
+        } else {
+            club = clubNames[indexPath.row]
+        }
 
         cell.clubNameLabel.text = club.clubName
         cell.stadiumLocationLabel.text = club.location
@@ -67,7 +95,12 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            let club = clubNames[indexPath.row]
+            let club: Club
+            if isFiltering {
+                club = filteredClubNames[indexPath.row]
+            } else {
+                club = clubNames[indexPath.row]
+            }
             let newClubVC = segue.destination as! NewClubTableViewController
             newClubVC.currentClub = club
         }
@@ -109,6 +142,23 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
             clubNames = clubNames.sorted(byKeyPath: "clubName", ascending: ascendingSorting)
         }
     
+        tableView.reloadData()
+    }
+    
+    
+}
+
+
+
+extension MainTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filteredContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    
+    private func filteredContentForSearchText(_ searchText: String) {
+        filteredClubNames = clubNames.filter("clubName CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
+        
         tableView.reloadData()
     }
     
