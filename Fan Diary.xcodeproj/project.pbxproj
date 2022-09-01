@@ -17,6 +17,8 @@
 		5829E37328B7DBD40074816C /* StadiumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5829E37228B7DBD40074816C /* StadiumModel.swift */; };
 		5829E37528B8D34D0074816C /* NewClubTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5829E37428B8D34D0074816C /* NewClubTableViewController.swift */; };
 		5829E37728BA4A260074816C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5829E37628BA4A260074816C /* StorageManager.swift */; };
+		58CA915128BCDF7D00F8CB72 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA915028BCDF7D00F8CB72 /* RatingControl.swift */; };
+		58E8C32D28C0C14C0052B8D4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E8C32C28C0C14C0052B8D4 /* MapViewController.swift */; };
 		6D5586FD53AAC1F97DAF3AF2 /* Pods_Fan_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841E5BA5DFFF7BB6F0A03940 /* Pods_Fan_Diary.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,8 @@
 		5829E37228B7DBD40074816C /* StadiumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadiumModel.swift; sourceTree = "<group>"; };
 		5829E37428B8D34D0074816C /* NewClubTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClubTableViewController.swift; sourceTree = "<group>"; };
 		5829E37628BA4A260074816C /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		58CA915028BCDF7D00F8CB72 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		58E8C32C28C0C14C0052B8D4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		841E5BA5DFFF7BB6F0A03940 /* Pods_Fan_Diary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fan_Diary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA983B216FAE6A154CF759F4 /* Pods-Fan Diary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fan Diary.release.xcconfig"; path = "Target Support Files/Pods-Fan Diary/Pods-Fan Diary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,10 +95,12 @@
 				5829E35A28B77FF20074816C /* AppDelegate.swift */,
 				5829E36E28B782550074816C /* MainTableViewController.swift */,
 				5829E37028B7C56A0074816C /* CustomTableViewCell.swift */,
+				58CA915028BCDF7D00F8CB72 /* RatingControl.swift */,
 				5829E37228B7DBD40074816C /* StadiumModel.swift */,
 				5829E37628BA4A260074816C /* StorageManager.swift */,
 				5829E35C28B77FF20074816C /* SceneDelegate.swift */,
 				5829E36028B77FF20074816C /* Main.storyboard */,
+				58E8C32C28C0C14C0052B8D4 /* MapViewController.swift */,
 				5829E37428B8D34D0074816C /* NewClubTableViewController.swift */,
 				5829E36328B77FF40074816C /* Assets.xcassets */,
 				5829E36528B77FF40074816C /* LaunchScreen.storyboard */,
@@ -222,6 +228,8 @@
 				5829E37328B7DBD40074816C /* StadiumModel.swift in Sources */,
 				5829E37528B8D34D0074816C /* NewClubTableViewController.swift in Sources */,
 				5829E37728BA4A260074816C /* StorageManager.swift in Sources */,
+				58E8C32D28C0C14C0052B8D4 /* MapViewController.swift in Sources */,
+				58CA915128BCDF7D00F8CB72 /* RatingControl.swift in Sources */,
 				5829E36F28B782550074816C /* MainTableViewController.swift in Sources */,
 				5829E37128B7C56B0074816C /* CustomTableViewCell.swift in Sources */,
 				5829E35D28B77FF20074816C /* SceneDelegate.swift in Sources */,

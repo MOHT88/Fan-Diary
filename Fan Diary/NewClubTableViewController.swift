@@ -9,14 +9,15 @@ import UIKit
 
 class NewClubTableViewController: UITableViewController {
     
-    var currentClub: Club?
+    var currentClub: Club!
    
     
-    @IBOutlet weak var clubImage: UIImageView!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
-    @IBOutlet weak var clubNameTF: UITextField!
-    @IBOutlet weak var stadiumNameTF: UITextField!
-    @IBOutlet weak var locationTF: UITextField!
+    @IBOutlet var clubImage: UIImageView!
+    @IBOutlet var saveButton: UIBarButtonItem!
+    @IBOutlet var clubNameTF: UITextField!
+    @IBOutlet var stadiumNameTF: UITextField!
+    @IBOutlet var locationTF: UITextField!
+    @IBOutlet var ratingControl: RatingControl!
     
     
     override func viewDidLoad() {
@@ -70,7 +71,11 @@ class NewClubTableViewController: UITableViewController {
         let imageData = clubImage.image?.pngData()
         
         
-        let newClub = Club(clubName: clubNameTF.text!, stadium: stadiumNameTF.text, location: locationTF.text, imageData: imageData)
+        let newClub = Club(clubName: clubNameTF.text!,
+                           stadium: stadiumNameTF.text,
+                           location: locationTF.text,
+                           imageData: imageData,
+                           rating: Double(ratingControl.rating))
 
         if currentClub != nil {
             try! realm.write {
@@ -78,6 +83,7 @@ class NewClubTableViewController: UITableViewController {
                 currentClub?.location = newClub.location
                 currentClub?.stadium = newClub.stadium
                 currentClub?.imageData = newClub.imageData
+                currentClub?.rating = newClub.rating
             }
         } else {
             StorageManager.saveObject(newClub)
@@ -107,6 +113,7 @@ class NewClubTableViewController: UITableViewController {
             clubNameTF.text = currentClub?.clubName
             locationTF.text = currentClub?.location
             stadiumNameTF.text = currentClub?.stadium
+            ratingControl.rating = Int(currentClub.rating)
         }
     }
     

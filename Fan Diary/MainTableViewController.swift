@@ -51,32 +51,34 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         if isFiltering {
             return filteredClubNames.count
         }
-        return clubNames.isEmpty ? 0 : clubNames.count
+        return clubNames.count
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
-        var club = Club()
+       
         
-        if isFiltering {
-            club = filteredClubNames[indexPath.row]
-        } else {
-            club = clubNames[indexPath.row]
-        }
+        
+        let club = isFiltering ? filteredClubNames[indexPath.row] : clubNames[indexPath.row]
 
         cell.clubNameLabel.text = club.clubName
         cell.stadiumLocationLabel.text = club.location
         cell.stadiumNameLabel.text = club.stadium
         cell.stadiumImage.image = UIImage(data: club.imageData!)
+        
 
         return cell
     }
     
     
     
-// MARK: Table view Delegate
+// MARK: Table view delegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
@@ -95,12 +97,7 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            let club: Club
-            if isFiltering {
-                club = filteredClubNames[indexPath.row]
-            } else {
-                club = clubNames[indexPath.row]
-            }
+            let club = isFiltering ? filteredClubNames[indexPath.row] : clubNames[indexPath.row]
             let newClubVC = segue.destination as! NewClubTableViewController
             newClubVC.currentClub = club
         }
