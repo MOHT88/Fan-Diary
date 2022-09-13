@@ -18,6 +18,7 @@
 		5829E37528B8D34D0074816C /* NewClubTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5829E37428B8D34D0074816C /* NewClubTableViewController.swift */; };
 		5829E37728BA4A260074816C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5829E37628BA4A260074816C /* StorageManager.swift */; };
 		58CA915128BCDF7D00F8CB72 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA915028BCDF7D00F8CB72 /* RatingControl.swift */; };
+		58DD6FBE28D0D6DA0053F50D /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DD6FBD28D0D6DA0053F50D /* MapManager.swift */; };
 		58E8C32D28C0C14C0052B8D4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E8C32C28C0C14C0052B8D4 /* MapViewController.swift */; };
 		6D5586FD53AAC1F97DAF3AF2 /* Pods_Fan_Diary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841E5BA5DFFF7BB6F0A03940 /* Pods_Fan_Diary.framework */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		5829E37428B8D34D0074816C /* NewClubTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClubTableViewController.swift; sourceTree = "<group>"; };
 		5829E37628BA4A260074816C /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		58CA915028BCDF7D00F8CB72 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		58DD6FBD28D0D6DA0053F50D /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		58E8C32C28C0C14C0052B8D4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		841E5BA5DFFF7BB6F0A03940 /* Pods_Fan_Diary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fan_Diary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA983B216FAE6A154CF759F4 /* Pods-Fan Diary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fan Diary.release.xcconfig"; path = "Target Support Files/Pods-Fan Diary/Pods-Fan Diary.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,21 +94,62 @@
 		5829E35928B77FF20074816C /* Fan Diary */ = {
 			isa = PBXGroup;
 			children = (
-				5829E35A28B77FF20074816C /* AppDelegate.swift */,
-				5829E36E28B782550074816C /* MainTableViewController.swift */,
-				5829E37028B7C56A0074816C /* CustomTableViewCell.swift */,
-				58CA915028BCDF7D00F8CB72 /* RatingControl.swift */,
-				5829E37228B7DBD40074816C /* StadiumModel.swift */,
-				5829E37628BA4A260074816C /* StorageManager.swift */,
-				5829E35C28B77FF20074816C /* SceneDelegate.swift */,
-				5829E36028B77FF20074816C /* Main.storyboard */,
-				58E8C32C28C0C14C0052B8D4 /* MapViewController.swift */,
-				5829E37428B8D34D0074816C /* NewClubTableViewController.swift */,
-				5829E36328B77FF40074816C /* Assets.xcassets */,
-				5829E36528B77FF40074816C /* LaunchScreen.storyboard */,
-				5829E36828B77FF40074816C /* Info.plist */,
+				58DD6FBF28D0E9150053F50D /* ViewControllers */,
+				58DD6FC128D0E99C0053F50D /* Helpers */,
+				58DD6FC028D0E97C0053F50D /* Models */,
+				58DD6FC228D0E9DA0053F50D /* Support Files */,
+				58DD6FC328D0EA1A0053F50D /* IBulder */,
 			);
 			path = "Fan Diary";
+			sourceTree = "<group>";
+		};
+		58DD6FBF28D0E9150053F50D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5829E37028B7C56A0074816C /* CustomTableViewCell.swift */,
+				5829E36E28B782550074816C /* MainTableViewController.swift */,
+				5829E37428B8D34D0074816C /* NewClubTableViewController.swift */,
+				58E8C32C28C0C14C0052B8D4 /* MapViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		58DD6FC028D0E97C0053F50D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5829E37228B7DBD40074816C /* StadiumModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		58DD6FC128D0E99C0053F50D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				58CA915028BCDF7D00F8CB72 /* RatingControl.swift */,
+				5829E37628BA4A260074816C /* StorageManager.swift */,
+				58DD6FBD28D0D6DA0053F50D /* MapManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		58DD6FC228D0E9DA0053F50D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5829E36828B77FF40074816C /* Info.plist */,
+				5829E36328B77FF40074816C /* Assets.xcassets */,
+				5829E35C28B77FF20074816C /* SceneDelegate.swift */,
+				5829E35A28B77FF20074816C /* AppDelegate.swift */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		58DD6FC328D0EA1A0053F50D /* IBulder */ = {
+			isa = PBXGroup;
+			children = (
+				5829E36528B77FF40074816C /* LaunchScreen.storyboard */,
+				5829E36028B77FF20074816C /* Main.storyboard */,
+			);
+			path = IBulder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +273,7 @@
 				5829E37728BA4A260074816C /* StorageManager.swift in Sources */,
 				58E8C32D28C0C14C0052B8D4 /* MapViewController.swift in Sources */,
 				58CA915128BCDF7D00F8CB72 /* RatingControl.swift in Sources */,
+				58DD6FBE28D0D6DA0053F50D /* MapManager.swift in Sources */,
 				5829E36F28B782550074816C /* MainTableViewController.swift in Sources */,
 				5829E37128B7C56B0074816C /* CustomTableViewCell.swift in Sources */,
 				5829E35D28B77FF20074816C /* SceneDelegate.swift in Sources */,
@@ -382,7 +426,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G9KP9J4ZYQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Fan Diary/Info.plist";
+				INFOPLIST_FILE = "Fan Diary/Support Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -412,7 +456,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G9KP9J4ZYQ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Fan Diary/Info.plist";
+				INFOPLIST_FILE = "Fan Diary/Support Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
