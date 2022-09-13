@@ -134,16 +134,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oGd-mm-Ymr">
-                                                    <rect key="frame" x="20" y="8" width="374" height="68"/>
+                                                    <rect key="frame" x="20" y="8" width="344" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0u-rH-fgw">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="28.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="344" height="28.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Enter Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPN-GC-DkL">
-                                                            <rect key="frame" x="0.0" y="36.5" width="374" height="31.5"/>
+                                                            <rect key="frame" x="0.0" y="36.5" width="344" height="31.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                             <connections>
@@ -152,10 +152,32 @@
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dL-D8-Kpi">
+                                                    <rect key="frame" x="372" y="49" width="22" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="UAh-K3-z1j"/>
+                                                        <constraint firstAttribute="width" constant="22" id="h13-lS-8Yj"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain">
+                                                        <imageReference key="image" image="mappin.and.ellipse" catalog="system" renderingMode="hierarchical-single">
+                                                            <hierarchicalColors>
+                                                                <color systemColor="labelColor"/>
+                                                                <color systemColor="secondaryLabelColor"/>
+                                                                <color systemColor="tertiaryLabelColor"/>
+                                                            </hierarchicalColors>
+                                                        </imageReference>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <segue destination="4o8-Eh-jN3" kind="presentation" identifier="getAddress" modalPresentationStyle="fullScreen" id="qH4-6s-cy8"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="6dL-D8-Kpi" firstAttribute="centerY" secondItem="bPN-GC-DkL" secondAttribute="centerY" id="9PA-ll-R83"/>
                                                 <constraint firstAttribute="bottom" secondItem="oGd-mm-Ymr" secondAttribute="bottom" constant="4" id="CoW-FY-B89"/>
-                                                <constraint firstAttribute="trailing" secondItem="oGd-mm-Ymr" secondAttribute="trailing" constant="20" id="Igp-1H-TT9"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6dL-D8-Kpi" secondAttribute="trailing" id="GRo-Gw-lNx"/>
+                                                <constraint firstItem="6dL-D8-Kpi" firstAttribute="leading" secondItem="oGd-mm-Ymr" secondAttribute="trailing" constant="8" id="lQW-vv-vKy"/>
                                                 <constraint firstItem="oGd-mm-Ymr" firstAttribute="leading" secondItem="cVe-R1-jx9" secondAttribute="leading" constant="20" symbolic="YES" id="v99-WE-XZ1"/>
                                                 <constraint firstItem="oGd-mm-Ymr" firstAttribute="top" secondItem="cVe-R1-jx9" secondAttribute="top" constant="8" id="vn8-Bb-fky"/>
                                             </constraints>
@@ -386,19 +408,112 @@
                                     <action selector="closeVC" destination="4o8-Eh-jN3" eventType="touchUpInside" id="dRv-eV-Q7Z"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yw6-AM-dVr">
+                                <rect key="frame" x="324" y="806" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="U5H-xA-Tdz"/>
+                                    <constraint firstAttribute="height" constant="50" id="wP4-JW-VdN"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="location" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
+                                        <hierarchicalColors>
+                                            <color systemColor="labelColor"/>
+                                            <color systemColor="secondaryLabelColor"/>
+                                            <color systemColor="tertiaryLabelColor"/>
+                                        </hierarchicalColors>
+                                    </imageReference>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="heavy"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="centerViewInUserLocation" destination="4o8-Eh-jN3" eventType="touchUpInside" id="Jlz-eQ-5W0"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aZa-HI-WlP">
+                                <rect key="frame" x="187" y="407.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="5pD-sy-w5S"/>
+                                    <constraint firstAttribute="height" constant="40" id="ceX-oB-DdQ"/>
+                                </constraints>
+                                <imageReference key="image" image="mappin" catalog="system" renderingMode="hierarchical-single">
+                                    <hierarchicalColors>
+                                        <color systemColor="labelColor"/>
+                                        <color systemColor="secondaryLabelColor"/>
+                                        <color systemColor="tertiaryLabelColor"/>
+                                    </hierarchicalColors>
+                                </imageReference>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Adress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wCj-4B-2uF">
+                                <rect key="frame" x="20" y="174" width="374" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEh-30-IaM">
+                                <rect key="frame" x="172" y="807" width="70" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed" destination="4o8-Eh-jN3" eventType="touchUpInside" id="JNJ-eh-76I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shJ-PA-BJ1">
+                                <rect key="frame" x="179.5" y="806" width="55.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="7g2-Wg-Czk"/>
+                                    <constraint firstAttribute="height" constant="50" id="liK-be-CFZ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="hare" catalog="system" renderingMode="hierarchical-single">
+                                        <hierarchicalColors>
+                                            <color systemColor="labelColor"/>
+                                            <color systemColor="secondaryLabelColor"/>
+                                            <color systemColor="tertiaryLabelColor"/>
+                                        </hierarchicalColors>
+                                    </imageReference>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" weight="heavy"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goButtonPressed" destination="4o8-Eh-jN3" eventType="touchUpInside" id="V7D-Ta-CXb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eTz-RB-5Ic"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="eTz-RB-5Ic" firstAttribute="trailing" secondItem="Yw6-AM-dVr" secondAttribute="trailing" constant="40" id="6LC-vT-FEI"/>
                             <constraint firstItem="eTz-RB-5Ic" firstAttribute="trailing" secondItem="oYp-uZ-dIS" secondAttribute="trailing" constant="20" id="7Ix-O0-nH5"/>
+                            <constraint firstItem="gEh-30-IaM" firstAttribute="centerX" secondItem="PPx-an-A7q" secondAttribute="centerX" id="8B2-9a-c2r"/>
+                            <constraint firstItem="aZa-HI-WlP" firstAttribute="centerX" secondItem="PPx-an-A7q" secondAttribute="centerX" id="CYd-EA-Vrg"/>
+                            <constraint firstItem="Yw6-AM-dVr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eTz-RB-5Ic" secondAttribute="leading" symbolic="YES" id="LiC-47-QCw"/>
+                            <constraint firstItem="shJ-PA-BJ1" firstAttribute="centerX" secondItem="PPx-an-A7q" secondAttribute="centerX" id="O5R-Jy-bHn"/>
                             <constraint firstItem="oYp-uZ-dIS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eTz-RB-5Ic" secondAttribute="leading" symbolic="YES" id="Rvt-Bd-Ro6"/>
                             <constraint firstItem="4oh-TA-jtb" firstAttribute="leading" secondItem="eTz-RB-5Ic" secondAttribute="leading" id="SS7-j7-fid"/>
                             <constraint firstItem="4oh-TA-jtb" firstAttribute="top" secondItem="PPx-an-A7q" secondAttribute="top" id="ULp-ll-MaB"/>
+                            <constraint firstItem="wCj-4B-2uF" firstAttribute="leading" secondItem="eTz-RB-5Ic" secondAttribute="leading" constant="20" id="Vhb-g5-7He"/>
                             <constraint firstAttribute="bottom" secondItem="4oh-TA-jtb" secondAttribute="bottom" id="Wv1-vj-vTE"/>
+                            <constraint firstItem="eTz-RB-5Ic" firstAttribute="trailing" secondItem="wCj-4B-2uF" secondAttribute="trailing" constant="20" id="ZE7-kA-hJK"/>
                             <constraint firstItem="oYp-uZ-dIS" firstAttribute="top" secondItem="PPx-an-A7q" secondAttribute="topMargin" constant="10" id="ahJ-mn-HKV"/>
+                            <constraint firstItem="4oh-TA-jtb" firstAttribute="top" secondItem="wCj-4B-2uF" secondAttribute="bottom" constant="-210" id="atM-qN-uzq"/>
+                            <constraint firstItem="eTz-RB-5Ic" firstAttribute="bottom" secondItem="shJ-PA-BJ1" secondAttribute="bottom" constant="6" id="enC-dn-d2j"/>
+                            <constraint firstItem="eTz-RB-5Ic" firstAttribute="bottom" secondItem="gEh-30-IaM" secondAttribute="bottom" constant="7" id="ifW-T7-oha"/>
+                            <constraint firstAttribute="bottom" secondItem="Yw6-AM-dVr" secondAttribute="bottom" constant="40" id="n8c-7Q-Lt8"/>
                             <constraint firstItem="4oh-TA-jtb" firstAttribute="trailing" secondItem="eTz-RB-5Ic" secondAttribute="trailing" id="pGr-Bu-eSq"/>
+                            <constraint firstItem="aZa-HI-WlP" firstAttribute="centerY" secondItem="PPx-an-A7q" secondAttribute="centerY" constant="-20" id="qQS-m4-8Rw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentAddressLabel" destination="wCj-4B-2uF" id="Y7z-Kp-oRX"/>
+                        <outlet property="doneButton" destination="gEh-30-IaM" id="TyU-m2-Aur"/>
+                        <outlet property="goButton" destination="shJ-PA-BJ1" id="4Af-iv-9s0"/>
+                        <outlet property="mapPin" destination="aZa-HI-WlP" id="6ww-Eb-SP4"/>
+                        <outlet property="mapView" destination="4oh-TA-jtb" id="qf2-Wq-S4L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqM-to-pb2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -411,15 +526,29 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
+        <segue reference="qH4-6s-cy8"/>
         <segue reference="qqo-3M-Gqj"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="195" height="196"/>
+        <image name="hare" catalog="system" width="128" height="92"/>
+        <image name="location" catalog="system" width="128" height="118"/>
         <image name="map" width="50" height="50"/>
+        <image name="mappin" catalog="system" width="105" height="128"/>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

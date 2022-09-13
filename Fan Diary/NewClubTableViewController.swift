@@ -65,6 +65,28 @@ class NewClubTableViewController: UITableViewController {
         }
     }
     
+    
+    //MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard
+            let identifier = segue.identifier,
+            let mapVC = segue.destination as? MapViewController
+            else { return }
+        
+        
+        mapVC.incomeSegueID = identifier
+        mapVC.mapViewControllerDelegate = self
+        
+        if identifier == "showMap" {
+        mapVC.club.clubName = clubNameTF.text!
+        mapVC.club.location = locationTF.text
+        mapVC.club.stadium = stadiumNameTF.text
+        mapVC.club.imageData = clubImage.image?.pngData()
+        }
+    }
+    
     func saveClub() {
         
         
@@ -178,5 +200,14 @@ extension NewClubTableViewController: UIImagePickerControllerDelegate, UINavigat
         clubImage.clipsToBounds = true
         dismiss(animated: true)
         
+    }
+}
+
+
+extension NewClubTableViewController: MapViewControllerDelegate {
+    
+    
+    func getAddress(_ address: String?) {
+        locationTF.text = address
     }
 }
