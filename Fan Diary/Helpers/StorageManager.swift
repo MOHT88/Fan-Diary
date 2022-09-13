@@ -17,7 +17,6 @@ class StorageManager {
         }
     }
     
-    
     static func deleteObject(_ club: Club) {
         try! realm.write {
             realm.delete(club)

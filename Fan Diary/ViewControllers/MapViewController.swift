@@ -9,22 +9,17 @@ import UIKit
 import MapKit
 import CoreLocation
 
-
-
 protocol MapViewControllerDelegate {
     func getAddress(_ address: String?)
 }
 
-
 class MapViewController: UIViewController {
-
+    
     let mapManager = MapManager()
     var mapViewControllerDelegate: MapViewControllerDelegate?
     var club = Club()
-    
     let annotationIdentifier = "annotationIdentifier"
     var incomeSegueID = ""
-   
     
     var previousLocation: CLLocation? {
         didSet {
@@ -37,11 +32,9 @@ class MapViewController: UIViewController {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                         self.mapManager.showUserLocation(mapView: self.mapView)
                     }
-            }
+                }
         }
     }
-    
-    
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var mapPin: UIImageView!
@@ -49,15 +42,12 @@ class MapViewController: UIViewController {
     @IBOutlet var doneButton: UIButton!
     @IBOutlet var goButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         currentAddressLabel.text = ""
         mapView.delegate = self
         setupMapView()
-        
-
     }
     
     @IBAction func centerViewInUserLocation() {
@@ -69,22 +59,19 @@ class MapViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    
     @IBAction func goButtonPressed() {
         mapManager.getDirection(for: mapView) { (location) in
             self.previousLocation = location
         }
     }
     
-        @IBAction func closeVC() {
-            dismiss(animated: true)
-
-        }
+    @IBAction func closeVC() {
+        dismiss(animated: true)
+    }
     
     private func setupMapView() {
         
         goButton.isHidden = true
-        
         
         mapManager.checkLocationServices(mapView: mapView, segueID: incomeSegueID) {
             mapManager.locationManager.delegate = self
@@ -96,34 +83,9 @@ class MapViewController: UIViewController {
             currentAddressLabel.isHidden = true
             doneButton.isHidden = true
             goButton.isHidden = false
-        
         }
     }
-    
-//
-//
-//    private func setupLocationManager() {
-//        locationManager.delegate = self
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//    }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-    }
-//
-//
-//
-//
-//
-//}
-//
-//
+}
 
 extension MapViewController: MKMapViewDelegate {
     
@@ -133,7 +95,6 @@ extension MapViewController: MKMapViewDelegate {
         
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationIdentifier") as? MKPinAnnotationView
         
-        
         if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation,
                                                  reuseIdentifier: annotationIdentifier)
@@ -141,20 +102,14 @@ extension MapViewController: MKMapViewDelegate {
             annotationView?.canShowCallout = true
         }
         
-        
         if let imageData = club.imageData {
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
             imageView.image = UIImage(data: imageData)
             annotationView?.rightCalloutAccessoryView = imageView
-        
-        
         }
-        
-        
         
         return annotationView
     }
-    
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
@@ -168,8 +123,6 @@ extension MapViewController: MKMapViewDelegate {
         }
         
         geocoder.cancelGeocode()
-        
-        
         geocoder.reverseGeocodeLocation(center) { (placemarks, error) in
             
             if let error = error {
@@ -183,7 +136,6 @@ extension MapViewController: MKMapViewDelegate {
             let streetName = placemark?.thoroughfare
             let buildNumber = placemark?.subThoroughfare
             
-            
             DispatchQueue.main.async {
                 
                 if streetName != nil && buildNumber != nil {
@@ -193,10 +145,7 @@ extension MapViewController: MKMapViewDelegate {
                 } else {
                     self.currentAddressLabel.text = ""
                 }
-                
-               
             }
-            
         }
     }
     
@@ -206,19 +155,13 @@ extension MapViewController: MKMapViewDelegate {
         renderer.strokeColor = .blue
         
         return renderer
-        
     }
 }
-
-
 
 extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager,
                          didChangeAuthorization status: CLAuthorizationStatus) {
         mapManager.checkLocationAuthorization(mapView: mapView, segueID: incomeSegueID)
-        
     }
-    
-    
 }

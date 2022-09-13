@@ -10,7 +10,6 @@ import UIKit
 class NewClubTableViewController: UITableViewController {
     
     var currentClub: Club!
-   
     
     @IBOutlet var clubImage: UIImageView!
     @IBOutlet var saveButton: UIBarButtonItem!
@@ -19,17 +18,16 @@ class NewClubTableViewController: UITableViewController {
     @IBOutlet var locationTF: UITextField!
     @IBOutlet var ratingControl: RatingControl!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         saveButton.isEnabled = false
         
         clubNameTF.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-       setupEditScreen()
+        setupEditScreen()
     }
-// MARK: Table View Delegate
+    
+    // MARK: Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
@@ -65,7 +63,6 @@ class NewClubTableViewController: UITableViewController {
         }
     }
     
-    
     //MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,32 +70,29 @@ class NewClubTableViewController: UITableViewController {
         guard
             let identifier = segue.identifier,
             let mapVC = segue.destination as? MapViewController
-            else { return }
-        
+        else { return }
         
         mapVC.incomeSegueID = identifier
         mapVC.mapViewControllerDelegate = self
         
         if identifier == "showMap" {
-        mapVC.club.clubName = clubNameTF.text!
-        mapVC.club.location = locationTF.text
-        mapVC.club.stadium = stadiumNameTF.text
-        mapVC.club.imageData = clubImage.image?.pngData()
+            mapVC.club.clubName = clubNameTF.text!
+            mapVC.club.location = locationTF.text
+            mapVC.club.stadium = stadiumNameTF.text
+            mapVC.club.imageData = clubImage.image?.pngData()
         }
     }
     
     func saveClub() {
         
-        
         let imageData = clubImage.image?.pngData()
-        
         
         let newClub = Club(clubName: clubNameTF.text!,
                            stadium: stadiumNameTF.text,
                            location: locationTF.text,
                            imageData: imageData,
                            rating: Double(ratingControl.rating))
-
+        
         if currentClub != nil {
             try! realm.write {
                 currentClub?.clubName = newClub.clubName
@@ -110,18 +104,6 @@ class NewClubTableViewController: UITableViewController {
         } else {
             StorageManager.saveObject(newClub)
         }
-        
-        
-        
-//        newClub.clubName = clubNameTF.text!
-//        newClub.location = locationTF.text
-//        newClub.stadium = stadiumNameTF.text
-//        newClub.imageData = imageData
-//        newClub = Club(clubName: clubNameTF.text!,
-//                       stadium: stadiumNameTF.text,
-//                       location: locationTF.text,
-//                       image: clubImage.image,
-//                       clubImage: nil)
     }
     
     private func setupEditScreen() {
@@ -139,27 +121,24 @@ class NewClubTableViewController: UITableViewController {
         }
     }
     
-    
     private func setupNavigationBar() {
         if let topItem = navigationController?.navigationBar.topItem {
-            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            topItem.backBarButtonItem = UIBarButtonItem(title: "",
+                                                        style: .plain,
+                                                        target: nil,
+                                                        action: nil)
         }
         navigationItem.leftBarButtonItem = nil
         title = currentClub?.clubName
         saveButton.isEnabled = true
     }
     
-    
     @IBAction func cancelAction(_ sender: Any) {
         dismiss(animated: true)
     }
-    
 }
 
-
 extension NewClubTableViewController: UITextFieldDelegate {
-    
-    // Скрываем клавиатуру по нажатию на Done
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -180,14 +159,13 @@ extension NewClubTableViewController: UITextFieldDelegate {
 extension NewClubTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func chooseImagePicker(source: UIImagePickerController.SourceType) {
-     
+        
         if UIImagePickerController.isSourceTypeAvailable(source) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.allowsEditing = true
             imagePicker.sourceType = source
             present(imagePicker, animated: true)
-            
         }
     }
     
@@ -196,16 +174,12 @@ extension NewClubTableViewController: UIImagePickerControllerDelegate, UINavigat
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         clubImage.image = info[.editedImage] as? UIImage
-//        clubImage.contentMode = .scaleAspectFill
         clubImage.clipsToBounds = true
         dismiss(animated: true)
-        
     }
 }
 
-
 extension NewClubTableViewController: MapViewControllerDelegate {
-    
     
     func getAddress(_ address: String?) {
         locationTF.text = address

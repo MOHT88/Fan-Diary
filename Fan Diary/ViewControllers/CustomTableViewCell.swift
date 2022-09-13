@@ -8,11 +8,10 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var stadiumImage: UIImageView!
     @IBOutlet weak var clubNameLabel: UILabel!
     @IBOutlet weak var stadiumNameLabel: UILabel!
     @IBOutlet weak var stadiumLocationLabel: UILabel!
-    
     
 }

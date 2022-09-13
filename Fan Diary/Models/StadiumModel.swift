@@ -18,7 +18,12 @@ class Club: Object {
     @objc dynamic var date = Date()
     @objc dynamic var rating = 0.0
     
-    convenience init(clubName: String, stadium: String?, location: String?, imageData: Data?, rating: Double) {
+    convenience init(clubName: String,
+                     stadium: String?,
+                     location: String?,
+                     imageData: Data?,
+                     rating: Double) {
+        
         self.init()
         self.clubName = clubName
         self.stadium = stadium

@@ -9,7 +9,7 @@ import UIKit
 
 @IBDesignable class RatingControl: UIStackView {
     
-    // MARK Properties
+    // MARK: Properties
     
     var rating = 0 {
         didSet {
@@ -24,15 +24,13 @@ import UIKit
             setupButtons()
         }
     }
+    
     @IBInspectable var starCount: Int = 5 {
         didSet {
             setupButtons()
         }
-            
     }
     
-    
-
     // MARK: Initialization
     
     override init(frame: CGRect) {
@@ -51,7 +49,6 @@ import UIKit
         
         guard let index = ratingButtons.firstIndex(of: button) else { return }
         
-        // Calculate rating of selected button
         let selectedRating = index + 1
         
         if selectedRating == rating {
@@ -59,7 +56,6 @@ import UIKit
         } else {
             rating = selectedRating
         }
-        
     }
     
     // MARK: Private Methods
@@ -73,8 +69,6 @@ import UIKit
         
         ratingButtons.removeAll()
         
-        
-        // Load button image
         let bundle = Bundle(for: type(of: self))
         let filledStar = UIImage(named: "filledStar",
                                  in: bundle,
@@ -87,9 +81,6 @@ import UIKit
         let highlightedStar = UIImage(named: "highlightedStar",
                                       in: bundle,
                                       compatibleWith: self.traitCollection)
-        
-        
-        
         
         for _ in 1...starCount {
             
@@ -108,17 +99,16 @@ import UIKit
             button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
             
             // Setup button action
-            button.addTarget(self, action: #selector(ratingButtonTapped(button:)), for: .touchUpInside)
+            button.addTarget(self,
+                             action: #selector(ratingButtonTapped(button:)),
+                             for: .touchUpInside)
             
             // Add button to stack
             addArrangedSubview(button)
             
             // Add new button to rating button array
             ratingButtons.append(button)
-            
-            
         }
-        
         updateButtonSelectionState()
     }
     
@@ -127,5 +117,4 @@ import UIKit
             button.isSelected = index < rating
         }
     }
-    
 }

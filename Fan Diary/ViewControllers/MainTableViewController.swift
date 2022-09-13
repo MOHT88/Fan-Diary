@@ -9,72 +9,59 @@ import UIKit
 import RealmSwift
 
 class MainTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
     
     private let searchController = UISearchController(searchResultsController: nil)
     private var clubNames: Results<Club>!
     private var filteredClubNames: Results<Club>!
     private var ascendingSorting = true
+    
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
     }
+    
     private var isFiltering: Bool {
         return searchController.isActive && !searchBarIsEmpty
     }
-
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var reversedSortingButton: UIBarButtonItem!
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         clubNames = realm.objects(Club.self)
-       
-        // Setup search controller
+        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
-
     }
-
+    
     // MARK: - Table view data source
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
             return filteredClubNames.count
         }
         return clubNames.count
     }
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-
-       
-        
-        
         let club = isFiltering ? filteredClubNames[indexPath.row] : clubNames[indexPath.row]
-
+        
         cell.clubNameLabel.text = club.clubName
         cell.stadiumLocationLabel.text = club.location
         cell.stadiumNameLabel.text = club.stadium
         cell.stadiumImage.image = UIImage(data: club.imageData!)
         
-
         return cell
     }
     
-    
-    
-// MARK: Table view delegate
+    // MARK: Table view delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -91,9 +78,6 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
-    
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
@@ -103,21 +87,16 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    
-    
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
         
         guard let newClubVC = segue.source as? NewClubTableViewController else { return }
         newClubVC.saveClub()
         tableView.reloadData()
-        
     }
-   
     
     @IBAction func sortSelection(_ sender: UISegmentedControl) {
         
-       sorting()
-        
+        sorting()
     }
     
     @IBAction func reversedSorting(_ sender: UIBarButtonItem) {
@@ -138,26 +117,18 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         } else {
             clubNames = clubNames.sorted(byKeyPath: "clubName", ascending: ascendingSorting)
         }
-    
         tableView.reloadData()
     }
-    
-    
 }
-
-
 
 extension MainTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filteredContentForSearchText(searchController.searchBar.text!)
     }
     
-    
     private func filteredContentForSearchText(_ searchText: String) {
         filteredClubNames = clubNames.filter("clubName CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
         
         tableView.reloadData()
     }
-    
-    
 }
