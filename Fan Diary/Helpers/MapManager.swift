@@ -100,7 +100,6 @@ class MapManager {
                                             longitudinalMeters: regionInMeters)
             
             mapView.setRegion(region, animated: true)
-            
         }
     }
     
