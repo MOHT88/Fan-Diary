@@ -7,6 +7,6 @@
 - Построение маршрута до объекта
 
 
-<img src="https://img.shields.io/badge/swift-F54A2A?style=for-the-badge&logo=swift&logoColor=white">
+<img src="https://drive.google.com/file/d/133d8bTu8SI4Snu6roSENbeedVihDjU_E/view?usp=sharing">
 
 
