@@ -7,4 +7,4 @@
 - Построение маршрута до объекта
 
 
-![Интерфейс](https://disk.yandex.ru/client/disk/Fan%20Diary/ReadMe/Photos?idApp=client&dialog=slider&idDialog=%2Fdisk%2FFan%20Diary%2FReadMe%2FPhotos%2FСнимок%20экрана%202022-10-18%20в%2018.36.02.png)
+![Интерфейс](https://disk.yandex.ru/i/VcavsISdJtsPuQ)
