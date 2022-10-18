@@ -7,4 +7,4 @@
 - Построение маршрута до объекта
 
 
-<img src="https://disk.yandex.ru/i/-V0hEQXujsJfwA">
+<img src="https://ibb.co/ng6FB5m">
