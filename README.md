@@ -7,6 +7,6 @@
 - Построение маршрута до объекта
 
 
-<img src="https://drive.google.com/file/d/133d8bTu8SI4Snu6roSENbeedVihDjU_E/view?usp=sharing">
+<img src="https://i.postimg.cc/3JgNFQDs/2022-10-18-18-36-02.png">
 
 
