@@ -7,4 +7,4 @@
 - Построение маршрута до объекта
 
 
-<img src="https://klike.net/uploads/posts/2019-05/1556708032_1.jpg">
+<img src="https://drive.google.com/file/d/133d8bTu8SI4Snu6roSENbeedVihDjU_E/view?usp=sharing">
