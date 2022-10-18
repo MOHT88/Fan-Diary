@@ -7,4 +7,4 @@
 - Построение маршрута до объекта
 
 
-![Интерфейс](https://disk.yandex.ru/i/VcavsISdJtsPuQ)
+![Интерфейс](https://img1.akspic.ru/previews/9/9/1/9/6/169199/169199-smartfon-Vozdushnyy_sharik-sinij-chelovek-zhest-x750.jpg)
